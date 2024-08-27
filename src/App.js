@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 function App() {
   const showCart = useSelector((state) => state.cart.showCart);
-  console.log("CART SHOW", showCart);
+
   return (
     <Layout>
       {showCart && <Cart />}
