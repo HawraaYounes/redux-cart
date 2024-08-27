@@ -21,7 +21,7 @@ const ProductItem = (props) => {
         <p>{description}</p>
         <div className={classes.actions}>
           <button
-            onClick={() => addToCartHandler({ title, price, description })}
+            onClick={() => addToCartHandler({ title, price, description, total: 1, quantity: 1 })}
           >
             {" "}
             Add to Cart
