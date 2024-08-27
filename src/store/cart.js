@@ -6,7 +6,9 @@ const cartSlice = createSlice({
   name: "Cart",
   initialState: initialCartState,
   reducers: {
-    add() {},
+    add(state,action) {
+      state.items=[...state.items, action.payload]
+    },
     toggle(state) {
       state.showCart = !state.showCart;
     },
