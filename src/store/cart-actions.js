@@ -16,7 +16,7 @@ export const fetchCartData = (cart) => {
       const data = await response.json();
       return data;
     };
-    
+
     try {
       const cartData = await fetchData();
       dispatch(cartActions.replaceCart(cartData));
@@ -47,7 +47,10 @@ export const sendCartData = (cart) => {
         "https://react-redux-5568d-default-rtdb.firebaseio.com/cart.json",
         {
           method: "PUT",
-          body: JSON.stringify(cart),
+          body: JSON.stringify({
+            items: cart.items,
+            totalQuantity: cart.totalQuantity,
+          }),
         }
       );
       if (!response.ok) {
