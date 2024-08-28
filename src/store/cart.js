@@ -38,14 +38,13 @@ const cartSlice = createSlice({
       state.totalQuantity--;
       state.changed = true;
       if (exisitingItem.quantity === 1) {
-        state.items.filter((item) => item.id !== id);
+        state.items = state.items.filter((item) => item.id !== id);
       } else {
         exisitingItem.quantity--;
         exisitingItem.totalPrice =
           exisitingItem.totalPrice - exisitingItem.price;
       }
     },
-
   },
 });
 
