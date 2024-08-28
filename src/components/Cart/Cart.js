@@ -4,7 +4,7 @@ import CartItem from "./CartItem";
 import { useSelector } from "react-redux";
 const Cart = (props) => {
   const items = useSelector((state) => state.cart.items);
-  console.log("ITEMS",items)
+
   return (
     <Card className={classes.cart}>
       <h2>Your Shopping Cart</h2>
@@ -14,7 +14,7 @@ const Cart = (props) => {
             item={{
               title: item.title,
               quantity: item.quantity,
-              total: item.total,
+              total: item.totalPrice,
               price: item.price,
             }}
           />
