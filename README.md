@@ -17,6 +17,7 @@ This project is a simple cart application built using ReactJS and Redux with Red
   - **Remove Item**: Remove items from the cart.
   - **Update Quantity**: Adjust item quantities in the cart.
   - **Notification**: Display notifications for errors or successful data fetching.
+  - **Firebase Integration**: Fetch data from Firebase Realtime Database and send cart data to it.
 
 ## Technologies Used
 
@@ -24,6 +25,9 @@ This project is a simple cart application built using ReactJS and Redux with Red
   - **ReactJS**: Used for building the frontend components and managing state.
   - **Redux**: Implemented for state management across the application.
   - **Redux Toolkit**: Used for simplifying Redux setup and management, including creating slices.
+
+- **Backend**:
+  - **Firebase Realtime Database**: Integrated for fetching and storing cart data.
 
 ## Getting Started
 
