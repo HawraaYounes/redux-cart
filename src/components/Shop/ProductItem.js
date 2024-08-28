@@ -4,13 +4,13 @@ import classes from "./ProductItem.module.css";
 import { cartActions } from "../../store/cart";
 
 const ProductItem = (props) => {
-  const { title, price, description } = props;
+  const { title, price, description, id } = props;
   const dispatch = useDispatch();
 
-  const addToCartHandler = (parameters) => {
-    dispatch(cartActions.add(parameters));
+  const addToCartHandler = () => {
+    dispatch(cartActions.add({ id, title, price }));
   };
-  
+
   return (
     <li className={classes.item}>
       <Card>
@@ -20,12 +20,7 @@ const ProductItem = (props) => {
         </header>
         <p>{description}</p>
         <div className={classes.actions}>
-          <button
-            onClick={() => addToCartHandler({ title, price, description, total: 1, quantity: 1 })}
-          >
-            {" "}
-            Add to Cart
-          </button>
+          <button onClick={addToCartHandler}> Add to Cart</button>
         </div>
       </Card>
     </li>
