@@ -1,12 +1,33 @@
-import classes from './Notification.module.css';
+import classes from "./Notification.module.css";
+import { uiActions } from "../../store/ui-slice";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-const Notification = (props) => {
+const Notification = () => {
+  const dispatch = useDispatch();
+  const notification = useSelector((state) => state.ui.notification);
+
+  useEffect(() => {
+    if (notification) {
+      const timer = setTimeout(() => {
+        dispatch(uiActions.clearNotification()); // Clear the notification
+      }, 3000); // Hide notification after 3 seconds
+
+      // Clean up the timer if the component is unmounted
+      return () => clearTimeout(timer);
+    }
+  }, [notification, dispatch]);
+
+  if (!notification) {
+    return null; // Return null if there's no notification
+  }
+
   let specialClasses = '';
 
-  if (props.status === 'error') {
+  if (notification.status === 'error') {
     specialClasses = classes.error;
   }
-  if (props.status === 'success') {
+  if (notification.status === 'success') {
     specialClasses = classes.success;
   }
 
@@ -14,8 +35,8 @@ const Notification = (props) => {
 
   return (
     <section className={cssClasses}>
-      <h2>{props.title}</h2>
-      <p>{props.message}</p>
+      <h2>{notification.title}</h2>
+      <p>{notification.message}</p>
     </section>
   );
 };
